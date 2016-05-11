@@ -21,7 +21,9 @@ done
 
 echo "OK"
 
-# Run javascript tests
+# Insall phantomJS and run javascript tests
+mkdir /root/cache
+curl -sSL https://raw.githubusercontent.com/codeship/scripts/master/packages/phantomjs.sh | bash -s
 RAILS_ENV=test rake db:schema:load
 RAILS_ENV=test bundle exec teaspoon
 
