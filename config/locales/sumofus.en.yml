@@ -6,6 +6,11 @@ en:
     cta:
       join_us: 'Join us'
       see_impact: 'See our impact'
+    nav:
+      about: About
+      campaigns: Campaigns
+      press: Press
+      donate: Donate
     intro_title: 'SumOfUs is 9,546,523 people stopping big corporations from behaving badly'
   page:
     more_info: More information

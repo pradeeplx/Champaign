@@ -10,7 +10,22 @@ html lang="en"
     = favicon_link_tag 'sumofus/favicon.ico'
 
   body
+    .header
+      .header__language
+        - selected_class = 'header__language-option--current-language'
+        a.header__language-option class="#{I18n.locale == :en ? selected_class : ''}"
+          | English
+        a.header__language-option class="#{I18n.locale == :de ? selected_class : ''}"
+          | Deutsch
+        a.header__language-option class="#{I18n.locale == :fr ? selected_class : ''}"
+          | Français
+      .header__nav
+        a.header__nav-item.header__nav-item--focus.header__nav-item--rightmost
+          = t('homepage.nav.donate')
+        a.header__nav-item = t('homepage.nav.press')
+        a.header__nav-item = t('homepage.nav.campaigns')
+        a.header__nav-item.header__nav-item--leftmost = t('homepage.nav.about')
+
     = yield
 
-    / | here would be the footer
     .mobile-indicator
