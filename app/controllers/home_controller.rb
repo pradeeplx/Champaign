@@ -13,6 +13,10 @@ class HomeController < ApplicationController
     render plain: robots
   end
 
+  def homepage
+    render 'homepage', layout: 'homepage'
+  end
+
   private
 
   def health_check_haiku

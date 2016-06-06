@@ -2,12 +2,6 @@
 @import "compass";
 @import "compass/reset";
 
-// third party
-@import "selectize";
-@import "selectize.default";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 // our global styles, in the right order
 @import "global/colors";
 @import "global/mixins";

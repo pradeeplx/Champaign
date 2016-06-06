@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Custom health check route
   get '/health', to: 'home#health_check'
+  get '/homepage', to: 'home#homepage'
 
   # For crawlers
   get '/robots.:format' => 'home#robots'
