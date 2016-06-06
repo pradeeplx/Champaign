@@ -1,0 +1,17 @@
+.full-screen-block.intro-block
+  .full-screen-block__content
+    .side-padded.intro-block__title
+      h1= t('homepage.intro_title')
+    .signers-container.intro-block__signers
+    .side-padded
+      .intro-block__join-button.button.homepage-button
+        = t('homepage.cta.join_us')
+    .side-padded.full-screen-block__bottom
+      .intro-block__scroll-cta
+        = t('homepage.cta.see_impact')
+  .triangle-img
+    .triangle-img__cover
+    = image_tag "champaign/backgrounds/allende.jpg", class: 'triangle-img__img'
+
+.full-screen-block.victories-block
+  | a bunch of other stuff

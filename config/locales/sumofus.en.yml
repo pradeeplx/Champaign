@@ -1,4 +1,12 @@
 en:
+  homepage:
+    meta:
+      title: 'SumOfUs.org'
+      description: "SumOfUs is a global movement of consumers, investors, and workers all around the world, standing together to hold corporations accountable for their actions and forge a new, sustainable and just path for our global economy. It's not going to be fast or easy. But if enough of us come together, we can make a real difference."
+    cta:
+      join_us: 'Join us'
+      see_impact: 'See our impact'
+    intro_title: 'SumOfUs is 9,546,523 people stopping big corporations from behaving badly'
   page:
     more_info: More information
     no_script: "Thanks for coming to learn about this issue! Unfortunately, you can't take action while Javascript is disabled in your browser. Please enable Javascript or return in a browser with Javascript enabled to take action."

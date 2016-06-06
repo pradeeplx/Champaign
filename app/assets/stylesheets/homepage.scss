@@ -1,0 +1,84 @@
+@import "sumofus/global";
+@import "sumofus/components/button";
+
+.full-screen-block {
+  @include viewport-unit(height, 100vh);
+  position: relative;
+  overflow: hidden;
+  &__content {
+    @include size-of-container();
+    z-index: 100;
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 40px;
+  }
+  min-height: 500px;
+}
+
+.intro-block {
+  background: $teal;
+  &__title {
+    color: white;
+    max-width: 600px;
+    @include viewport-unit(margin-top, 22vh);
+  }
+  &__scroll-cta {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 25px;
+  }
+  &__signers {
+    height: 50px;
+    @include viewport-unit(margin-top, 5vh);
+    @include viewport-unit(margin-bottom, 5vh);
+    width: 100%;
+  }
+}
+.victories-block {
+  background: white;
+}
+.side-padded {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+h1 {
+  font-size: 42px;
+}
+.homepage-button {
+  font-size: 25px;
+  height: 70px;
+  float: left;
+  padding: 23px;
+  font-weight: bold;
+  width: auto;
+}
+
+.triangle-img {
+  @media(max-width: $mobile-width) {
+    display: none;
+  }
+  @include size-of-container();
+  z-index: 10;
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+  }
+  &__cover {
+    background: $teal;
+    width: 10000%;
+    height: 10000%;
+    position: absolute;
+    transform-origin: 100% 89%;
+    transform: rotate(45deg);
+    bottom: -1000%;
+    right: 0;
+    z-index: 11;
+    outline: 5px solid rgba($teal, 0.5);
+    @media(max-width: 950px) {
+      right: -100px;
+    }
+  }
+}

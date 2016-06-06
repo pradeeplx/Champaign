@@ -1,0 +1,16 @@
+doctype html
+html lang="en"
+  head
+    title = t('homepage.meta.title')
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="description" content=t('homepage.meta.description')
+    = stylesheet_link_tag "homepage"
+    = javascript_include_tag "homepage"
+    = csrf_meta_tags
+    = favicon_link_tag 'sumofus/favicon.ico'
+
+  body
+    = yield
+
+    / | here would be the footer
+    .mobile-indicator
