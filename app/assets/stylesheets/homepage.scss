@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "sumofus/global";
 @import "sumofus/components/button";
 
@@ -14,6 +16,7 @@
     bottom: 40px;
   }
   min-height: 500px;
+  max-height: 780px;
 }
 
 .intro-block {
@@ -21,7 +24,23 @@
   &__title {
     color: white;
     max-width: 600px;
+    position: relative;
     @include viewport-unit(margin-top, 22vh);
+    &::before {
+      width: 20px;
+      height: 20px;
+      display: block;
+      background-image: url(asset-path(sumofus/sou-plus));
+      content: "";
+      position: absolute;
+      background-size: contain;
+      top: 12px;
+      left: -22px;
+      background-repeat: no-repeat;
+    }
+  }
+  &__logo {
+    color: $navy;
   }
   &__scroll-cta {
     color: rgba(255, 255, 255, 0.5);
@@ -66,6 +85,12 @@ h1 {
     bottom: 0;
     right: 0;
     z-index: 9;
+    background-image: url(asset-path('sumofus/media-attention.jpg'));
+    background-size: cover;
+    width: 82%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   &__cover {
     background: $teal;
@@ -151,7 +176,7 @@ h1 {
   float: left;
   position: relative;
   &__actions-container {
-    width: 65%;
+    width: 60%;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -180,6 +205,13 @@ h1 {
       background: white;
       border-radius: $stream-height / 2;
       margin-right: 8px;
+    }
+    &__icon {
+      color: $teal;
+      font-size: 22px;
+      text-align: center;
+      width: 35px;
+      line-height: 35px;
     }
     &__credit {
       font-size: 16px;

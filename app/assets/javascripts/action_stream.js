@@ -56,9 +56,10 @@ const ActionStream = Backbone.View.extend({
       return;
     }
     let actionTranslation = `homepage.action_stream.${action_type}`
+    let icon = (action_type === 'donation') ? 'usd' : 'pencil'
     return `<div class="action-stream__template stream-action">
               <div class="stream-action__icon-holder">
-                <div class="stream-action__icon stream-action__icon--${action_type}"></div>
+                <span class="stream-action__icon fa fa-${icon}"></span>
               </div>
               <div class="stream-action__text">
                 <div class="stream-action__credit">

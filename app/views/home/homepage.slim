@@ -1,7 +1,10 @@
 .full-screen-block.intro-block
   .full-screen-block__content
     .side-padded.intro-block__title
-      h1= t('homepage.intro_title')
+      h1
+        span.intro-block__logo
+          | SumOfUs
+        = t('homepage.intro_title')
     .action-stream.intro-block__signers
       .action-stream__actions-container
         .action-stream__exit-cover
@@ -14,7 +17,7 @@
         = t('homepage.cta.see_impact')
   .triangle-img
     .triangle-img__cover
-    = image_tag "champaign/backgrounds/allende.jpg", class: 'triangle-img__img'
+    .triangle-img__img
 
 .full-screen-block.victories-block
   | a bunch of other stuff
