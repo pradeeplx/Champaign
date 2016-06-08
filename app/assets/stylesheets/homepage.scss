@@ -140,3 +140,59 @@ h1 {
     }
   }
 }
+
+.action-stream {
+  $stream-height: 35px;
+  color: $navy;
+  height: $stream-height;
+  width: 100%;
+  overflow: hidden;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  &__actions-container {
+    width: 65%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  &__actions {
+    position: absolute;
+    left: 0;
+    width: 10000px
+  }
+  &__exit-cover {
+    background-image: linear-gradient(to right, rgba($teal, 0), $teal);
+    position: absolute;
+    height: $stream-height;
+    width: 100px;
+    right: 0;
+    z-index: 12;
+  }
+  .stream-action {
+    height: 100%;
+    padding-left: 16px;
+    float: left;
+    &__icon-holder {
+      height: $stream-height;
+      width: $stream-height;
+      float: left;
+      background: white;
+      border-radius: $stream-height / 2;
+      margin-right: 8px;
+    }
+    &__credit {
+      font-size: 16px;
+      float: left;
+      margin: 2px 0 4px;
+    }
+    &__timestamp {
+      opacity: 0.4;
+      float: none;
+      font-size: 12px;
+    }
+    &__text {
+      float: left;
+    }
+  }
+}
