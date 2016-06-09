@@ -4,7 +4,7 @@
       h1
         span.intro-block__logo
           | SumOfUs
-        = t('homepage.intro_title')
+        = t('homepage.titles.intro')
     .action-stream.intro-block__signers
       .action-stream__actions-container
         .action-stream__exit-cover
@@ -21,3 +21,17 @@
 
 .full-screen-block.victories-block
   | a bunch of other stuff
+
+
+.full-screen-block.map-block
+  .map-block__title.full-screen-block__title
+    h1= t('homepage.titles.map')
+  .map-block__map
+    = image_tag 'sumofus/mollweide-map', class: "map-block__map-img"
+    .poi-map.map-block__points
+
+javascript:
+  $(document).ready(function(){
+    new ActionStream();
+    new PoiMap();
+  });
