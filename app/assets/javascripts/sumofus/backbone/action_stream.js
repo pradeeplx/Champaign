@@ -2,23 +2,7 @@ const ActionStream = Backbone.View.extend({
 
   el: '.action-stream',
 
-  events: {
-    'click .petition-bar__close-button': 'hide',
-    'click .petition-bar__clear-form': 'clearForm',
-    'ajax:success form.action': 'handleSuccess',
-  },
-
-  // options: object with any of the following keys
-  //    followUpUrl: the url to redirect to after success
-  //    submissionCallback: callback with event and server data for successful submission
-  //    outstandingFields: the names of step 2 form fields that aren't satisfied by
-  //      the values in the member hash.
-  //    member: an object with fields that will prefill the form
-  //    location: a hash of location values inferred from the user's request
-  //    akid: the actionkitid (akid) to save with the user request
-  //    thermometer: options to display on the thermometer
-  //    cosmetic: if true, then it will adjust heights and make the bar sticky scroll
-  initialize(options = {}) {
+  initialize() {
     window.setInterval(this.updateTimestamps.bind(this), 1000);
     this.actionsContainer = this.$('.action-stream__actions');
     this.addAction({type: 'signature', name: 'Chester Watson'});
