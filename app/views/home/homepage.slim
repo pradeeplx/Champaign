@@ -19,8 +19,24 @@
     .triangle-img__cover
     .triangle-img__img
 
-.full-screen-block.victories-block
-  | a bunch of other stuff
+.full-screen-block.full-screen-block--expandable.victories-block
+  .victories-block__title.full-screen-block__title
+    h1= t('homepage.titles.victories')
+  .victories-block__subheader
+    h3= t('homepage.victories.explanation')
+  .victories-block__case-studies
+    - @case_studies.each do |case_study|
+      .campaign-tile.campaign-tile--compact.campaign-tile--expandable
+        .campaign-tile__image style="background-image: url(#{case_study[:image]})"
+          .campaign-tile__details= case_study[:details]
+        .campaign-tile__lead= case_study[:lead]
+        .campaign-tile__cta.campaign-tile__open-cta
+          = t('homepage.cta.learn_more')
+          | &raquo;
+        .campaign-tile__cta.campaign-tile__close-cta
+          | &laquo;
+          = t('homepage.cta.close')
+
 
 
 .full-screen-block.map-block
@@ -34,4 +50,7 @@ javascript:
   $(document).ready(function(){
     new ActionStream();
     new PoiMap();
+    $('.campaign-tile--expandable').on('mouseenter mouseleave touch', function(){
+      $(this).toggleClass('campaign-tile--compact').toggleClass('campaign-tile--expanded');
+    });
   });

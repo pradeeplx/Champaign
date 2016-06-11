@@ -6,6 +6,8 @@ en:
     cta:
       join_us: 'Join us'
       see_impact: 'See our impact'
+      learn_more: "Learn more "
+      close: "Close"
     nav:
       about: About
       campaigns: Campaigns
@@ -18,6 +20,9 @@ en:
     titles:
       intro: ' is 9,546,523 people stopping big corporations from behaving badly.'
       map: "We're global."
+      victories: "We win campaigns."
+    victories:
+      explanation: "We are a movement of consumers, workers, and shareholders speaking with one voice to counterbalance the growing power of large corporations."
   page:
     more_info: More information
     no_script: "Thanks for coming to learn about this issue! Unfortunately, you can't take action while Javascript is disabled in your browser. Please enable Javascript or return in a browser with Javascript enabled to take action."
