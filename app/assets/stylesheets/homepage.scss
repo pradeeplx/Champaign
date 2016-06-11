@@ -261,15 +261,20 @@ h1 {
 }
 .poi-map {
   $animation-duration: 0.2s;
+  &__point-container {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    // put center on position, not corner
+    margin-top: -20px;
+    margin-left: -20px;
+  }
   &__point {
     background: $orange;
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    position: absolute;
-    // put center on position, not corner
-    margin-top: -20px;
-    margin-left: -20px;
+    z-index: 9;
   }
   &__point-highlight {
     background: $third-blue;
@@ -279,7 +284,7 @@ h1 {
     top: 8px;
     left: 8px;
     border-radius: 12px;
-    z-index: 10;
+    z-index: 12;
     transition: width $animation-duration ease-in, height $animation-duration ease-in,
                 top $animation-duration ease-in, left $animation-duration ease-in;
     &.poi-map--hidden {
@@ -301,6 +306,7 @@ h1 {
     transition: transform $animation-duration ease-in;
     transform-origin: bottom;
     transform: scaleX(1) scaleY(1) rotate(0deg);
+    z-index: 11;
     &.poi-map--hidden {
       transform: scaleX(0) scaleY(0.5) rotate(180deg);
     }
@@ -419,7 +425,7 @@ h1 {
       display: none;
     }
     .campaign-tile__details {
-      background: rgba(255,255,255,0.85);
+      background: rgba(white, 0.9);
       line-height: 22px;
       font-size: 17px;
       text-align: left;
