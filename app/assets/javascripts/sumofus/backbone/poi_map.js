@@ -30,7 +30,7 @@ let points = [
     y: 60
   },
   {
-    blurb: "FMO pulls funding from Agua Zarca dam project after murder of Berta Cáceres.'",
+    blurb: "FMO pulls funding from Agua Zarca dam project after murder of Berta Cáceres.",
     country: 'Honduras',
     x: 13,
     y: 45

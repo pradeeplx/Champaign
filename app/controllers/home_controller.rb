@@ -35,7 +35,7 @@ class HomeController < ApplicationController
       },
       {
         lead: "Keeping natural resources in the hands of local communities",
-        details: "Around the world, powerful corporations are attempting to exploit natural resources at the expense of those who live near them. SumOfUs empowers communities to fight back. Recently, we've helped towns in the USA and Canada reject Nestlé's attempts to bottle and sell their aquifers, and we've helped Maxima Acuña stop the Conga mine in the Peruvian Andes.",
+        details: "Around the world, powerful corporations are attempting to exploit natural resources at the expense of those who live near them. SumOfUs empowers communities to fight back. Recently, we've helped towns in the USA and Canada reject Nestlé's attempts to bottle and sell their aquifers, and we've helped Maxima Acuña stop the disastrous Conga mine in the Peruvian Andes.",
         image: 'sumofus/campaigns/maxima'
       },
       {
@@ -45,7 +45,7 @@ class HomeController < ApplicationController
       },
       {
         lead: "Forcing global food brands to use conflict-free palm oil",
-        details: "Palm oil is an important ingredient in many packaged foods, from Nutella to Big Macs. However, it's production often leads to the destruction of rainforests and flagrant abuses of workers' rights. We've successfully lobbied global food brands including McDonalds, Starbucks, and PepsiCo to purchase only palm oil produced free of conflict or deforestation.",
+        details: "Palm oil is an important ingredient in many packaged foods, from Nutella to Big Macs. However, it's production often leads to the destruction of rainforests and flagrant abuses of workers' rights. We've successfully lobbied global food brands including McDonalds, Starbucks, and PepsiCo, to purchase only palm oil produced free of conflict or deforestation.",
         image: 'sumofus/campaigns/palm'
       },
       {
