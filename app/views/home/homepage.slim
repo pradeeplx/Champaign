@@ -10,7 +10,7 @@
         .action-stream__exit-cover
         .action-stream__actions
     .side-padded
-      .intro-block__join-button.button.homepage-button
+      a.intro-block__join-button.button.homepage-button href="#join"
         = t('homepage.cta.join_us')
     .side-padded.full-screen-block__bottom
       .intro-block__scroll-cta
@@ -36,8 +36,6 @@
         .campaign-tile__cta.campaign-tile__close-cta
           | &laquo;
           = t('homepage.cta.close')
-
-
 
 .full-screen-block.map-block
   .map-block__title.full-screen-block__title
@@ -66,8 +64,27 @@
               .press-carousel__logo data-quote=press_hit[:quote] style="background-image: url(#{press_hit[:logo]})" class="press-carousel__logo--#{press_hit[:logo_aspect]}"
   .press-block__edge.press-block__edge--bottom
 
-.full-screen-block.signup-block
-  | this one is rather different
+.full-screen-block.join-block#join
+  .full-screen-block__content
+    .side-padded.join-block__title
+      h1= t('homepage.titles.join')
+    .join-block__signup-panel.side-padded
+      form.form.form--big.new-member-form
+        .new-member-form__group.form__group
+          input.new-member-form__field placeholder=t('homepage.join.name') name="name"
+        .new-member-form__group.form__group
+          input.new-member-form__field placeholder=t('homepage.join.email') name="email"
+        .new-member-form__group.form__group
+          input.new-member-form__field placeholder=t('homepage.join.country') name="country"
+        .new-member-form__group.form__group
+          input.new-member-form__field placeholder=t('homepage.join.postal') name="postal"
+        .new-member-form__group.form__group
+          button.button.homepage-button.new-member-form__button type="submit" class="button petition-bar__submit-button"
+            = t('homepage.cta.join_us')
+
+  .triangle-img
+    .triangle-img__cover.triangle-img__cover--white.triangle-img__cover--small
+    .triangle-img__img.triangle-img__img--shells
 
 javascript:
   $(document).ready(function(){

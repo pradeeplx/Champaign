@@ -2,6 +2,7 @@
 @import "font-awesome";
 @import "sumofus/global";
 @import "sumofus/components/button";
+@import "sumofus/components/form";
 
 .full-screen-block {
   @include viewport-unit(height, 100vh);
@@ -98,6 +99,9 @@ h1 {
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    &--shells {
+      background-image: url(asset-path('sumofus/shells.jpg'));
+    }
   }
   &__cover {
     background: $teal;
@@ -113,11 +117,24 @@ h1 {
     @media(max-width: 950px) {
       right: -100px;
     }
+    &--small {
+      right: 5%;
+      @media(max-width: 950px) {
+        right: -90px;
+      }
+      @media(min-width: 1100px) {
+        right: 19%;
+      }
+    }
+    &--white {
+      background: white;
+      outline: 5px solid rgba(white, 0.5);
+    }
   }
 }
 
 .header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
@@ -389,6 +406,7 @@ h1 {
   background-repeat: repeat;
   text-align: center;
   overflow: visible;
+  z-index: 30;
   &__title {
     background: $teal;
     color: white;
@@ -601,6 +619,46 @@ h1 {
       height: 100%;
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
+    }
+  }
+}
+.new-member-form {
+  &__group {
+    @media(min-width: 520px){
+      width: 47%;
+      margin-left: 2%;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+    input, select {
+      width: 100%;
+      font-size: 20px;
+    }
+  }
+  &__button.button {
+    padding-top: 20px;
+  }
+}
+.join-block {
+  background-color: white;
+  &__title {
+    color: $navy;
+    max-width: 600px;
+    position: relative;
+    @include viewport-unit(margin-top, 20vh);
+  }
+  &__signup-panel {
+    z-index: 25;
+    width: 80%;
+    max-width: 750px;
+    background: $chalk-gray;
+    padding: 8px 0;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-top: 40px;
+    @media(max-width: 519px){
+      padding: 10%;
+      margin-left: 0;
     }
   }
 }
