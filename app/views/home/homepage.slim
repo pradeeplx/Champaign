@@ -86,6 +86,33 @@
     .triangle-img__cover.triangle-img__cover--white.triangle-img__cover--small
     .triangle-img__img.triangle-img__img--shells
 
+.big-footer
+  .side-padded
+    .big-footer__branding
+      .sumofus-logo--negative
+      .sumofus-logo--tagline
+        = t('branding.tagline')
+    .big-footer__links
+      a.big-footer__link href="/"
+        = t('footer.home')
+      a.big-footer__link href="/faqs"
+        = t('footer.faqs')
+      a.big-footer__link href="/about"
+        = t('footer.about')
+      a.big-footer__link href="/jobs"
+        = t('footer.jobs')
+      a.big-footer__link href="/media"
+        = t('footer.media')
+      a.big-footer__link href="/contact"
+        = t('footer.contact')
+      a.big-footer__link href="/news"
+        = t('footer.news')
+      a.big-footer__link href="/privacy"
+        = t('footer.privacy_policy')
+
+    .big-footer__license
+      | &copy; 2016 SumOfUs, #{t('branding.license')}
+
 javascript:
   $(document).ready(function(){
     new ActionStream();

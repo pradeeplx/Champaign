@@ -118,7 +118,12 @@ en:
     is_invalid_length: 'must be less than %{length} characters long'
   footer:
     home: Home
+    faqs: FAQs
     about: About
+    jobs: Jobs
+    media: Media
+    contact: Contact
+    news: News
     privacy_policy: Privacy Policy
     contact: Contact
     controlshift: Start your own campaign

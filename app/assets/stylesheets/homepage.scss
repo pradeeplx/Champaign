@@ -3,6 +3,7 @@
 @import "sumofus/global";
 @import "sumofus/components/button";
 @import "sumofus/components/form";
+@import "sumofus/components/logo";
 
 .full-screen-block {
   @include viewport-unit(height, 100vh);
@@ -660,5 +661,33 @@ h1 {
       padding: 10%;
       margin-left: 0;
     }
+  }
+}
+
+.big-footer {
+  background: $dark-navy;
+  min-height: 265px;
+  color: white;
+  position: relative;
+  padding-top: 35px;
+  &__links {
+    max-width: 350px;
+  }
+  &__link {
+    display: block;
+    font-weight: bold;
+    float: left;
+    color: white;
+    margin-right: 40px;
+    width: 130px;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  &__license {
+    color: $slate-gray;
+    position: absolute;
+    bottom: 5px;
+    left: 10%;
+    font-size: 12px;
   }
 }
