@@ -22,6 +22,8 @@
   &--expandable {
     max-height: none;
     height: auto;
+    position: relative;
+    overflow: hidden;
   }
   min-height: 500px;
   max-height: 780px;
@@ -350,6 +352,122 @@ h1 {
     @include centered-to-full(960px);
     overflow: hidden;
     margin-bottom: 80px;
+  }
+}
+.press-block {
+  background-image: url(asset-path(sumofus/newsprint-texture));
+  background-repeat: repeat;
+  text-align: center;
+  overflow: visible;
+  &__title {
+    background: $teal;
+    color: white;
+    margin-top: 80px;
+  }
+  &__edge {
+    width: 100%;
+    height: 100px;
+    background-repeat: repeat-x;
+    background-image: url(asset-path(sumofus/newsprint-edge));
+    position: absolute;
+    left: 0;
+    &--top {
+      transform: rotate(180deg);
+      top: -30px;
+    }
+    &--bottom {
+      bottom: -30px;
+    }
+  }
+  &__carousel {
+    padding-bottom: 50px;
+  }
+}
+.press-carousel {
+  position: relative;
+  &__logo-container {
+    @include centered-to-full(900px);
+    overflow: hidden;
+    height: 100px;
+    position: relative;
+  }
+  &__logos {
+    height: 100px;
+    width: 10000px;
+    position: relative;
+    display: table;
+    vertical-align: middle;
+  }
+  &__logo {
+    position: relative;
+    float: left;
+    margin-right: 40px;
+    opacity: 0.2;
+    width: 170px;
+    height: 75px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    &--long {
+      width: 240px;
+    }
+    &--highlighted {
+      opacity: 1;
+    }
+  }
+  &__logo-group {
+    position: absolute;
+    top: 0;
+    transition: left 0.5s ease-out;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  &__cover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    z-index: 20;
+    &--left {
+      left: 0;
+      background-image: linear-gradient(to left, rgba(#e7e7e7, 0), #e7e7e7);
+    }
+    &--right {
+      right: 0;
+      background-image: linear-gradient(to right, rgba(#e7e7e7, 0), #e7e7e7);
+    }
+  }
+  &__arrow {
+    &--left {
+
+    }
+    &--right {
+
+    }
+  }
+  &__quote-container {
+    @include box-sizing(border-box);
+    @include centered-to-full(800px, 2%);
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: $navy;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    line-height: 1.3em;
+    min-height: 205px;
+    display: table;
+  }
+  &__quote {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    &:before {
+      content: '\201c';
+    }
+    &:after {
+      content: '\201d';
+    }
   }
 }
 .campaign-tile {

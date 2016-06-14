@@ -46,10 +46,33 @@
     = image_tag 'sumofus/mollweide-map', class: "map-block__map-img"
     .poi-map.map-block__points
 
+.full-screen-block--expandable.press-block
+  .press-block__edge.press-block__edge--top
+  .press-block__title.full-screen-block__title
+    h1= t('homepage.titles.press')
+  .press-block__carousel.press-carousel
+    .press-carousel__quote-container
+      span.press-carousel__quote
+        = @press_hits.first[:quote]
+    .press-carousel__logo-container
+      .press-carousel__arrow.press-carousel__arrow--left
+      .press-carousel__arrow.press-carousel__arrow--right
+      .press-carousel__cover.press-carousel__cover--left
+      .press-carousel__cover.press-carousel__cover--right
+      .press-carousel__logos
+        .press-carousel__logo-group
+          - @press_hits.each do |press_hit|
+            .press-carousel__logo data-quote=press_hit[:quote] style="background-image: url(#{press_hit[:logo]})" class="press-carousel__logo--#{press_hit[:logo_aspect]}"
+  .press-block__edge.press-block__edge--bottom
+
+.full-screen-block.signup-block
+  | this one is rather different
+
 javascript:
   $(document).ready(function(){
     new ActionStream();
     new PoiMap();
+    new PressCarousel();
     $('.campaign-tile--expandable').on('mouseenter mouseleave touch', function(){
       $(this).toggleClass('campaign-tile--compact').toggleClass('campaign-tile--expanded');
     });

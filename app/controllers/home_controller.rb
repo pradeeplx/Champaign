@@ -15,6 +15,7 @@ class HomeController < ApplicationController
 
   def homepage
     @case_studies = case_studies
+    @press_hits = press_hits
     render 'homepage', layout: 'homepage'
   end
 
@@ -61,6 +62,62 @@ class HomeController < ApplicationController
     ].map do |case_study|
       case_study[:image] = ActionController::Base.helpers.asset_path(case_study[:image], type: :image)
       case_study
+    end
+  end
+
+  def press_hits
+    [
+      {
+        quote: '‘There’s overwhelming evidence that CEO pay isn’t linked to performance,’ Lisa Lindsley, a shareholder advocate with SumOfUs, told The Post.',
+        logo: "sumofus/press/ny-post",
+        logo_aspect: :tall,
+        link: 'http://nypost.com/2016/05/20/lloyd-blankfein-gets-23m-for-being-mediocre/'
+      },
+      {
+        quote: 'About 400 protesters blew conch shells on a Hawaii beach to demonstrate against a trade agreement being negotiated by ministers from 12 Pacific Rim nations.',
+        logo: "sumofus/press/seattle-times",
+        logo_aspect: :long,
+        link: 'http://www.seattletimes.com/nation-world/environmentalists-unions-protest-pacific-trade-pact-in-maui/'
+      },
+      {
+        quote: 'Pullman added she believes it’s important for her organization to continue putting pressure on WestJet, because other companies are watching. ‘It sends a message to the entire corporate sector,’ she said.',
+        logo: "sumofus/press/calgary-herald",
+        logo_aspect: :tall,
+        link: 'http://calgaryherald.com/business/local-business/westjet-ceo-pledges-to-make-results-of-harassment-audit-public'
+      },
+      {
+        quote: 'Disgusted consumers called for a boycott of the stores still selling the fibre, while a petition led by SumOfUs asked Zara to stop the sale of items made with angora fur. The petition attracted more than 295,000 signatures.',
+        logo: "sumofus/press/daily-mail",
+        logo_aspect: :tall,
+        link: 'http://www.dailymail.co.uk/femail/article-2529849/Zara-Gap-finally-ban-angora-shoppers-horrified-plight-rabbits-plucked-alive-threaten-boycott-shops.html'
+      },
+      {
+        quote: '‘There definitely is a piece around educating people that they can have a say that way,’ said Liz McDowell, campaign director at SumOfUs. ‘I was surprised at the amount of momentum behind this petition.’',
+        logo: "sumofus/press/bloomberg",
+        logo_aspect: :tall,
+        link: 'http://www.bloomberg.com/news/articles/2016-05-20/a-millionaire-is-telling-blackrock-to-say-no-to-big-ceo-pay'
+      },
+      {
+        quote: 'At 2.30pm, women frontline workers and campaign group SumOfUs, will hand in a 200,000 signature petition to 10 Downing Street, calling on the Government to rethink its Trade Union Bill.',
+        logo: "sumofus/press/mirror",
+        logo_aspect: :tall,
+        link: 'http://www.mirror.co.uk/news/uk-news/real-work-unions-makes-services-7311706'
+      },
+      {
+        quote: 'A group of airlines including Air France, KLM, Iberia, IAG Cargo, Singapore Airlines and Qantas signaled last week they would ban the transport of trophy-hunting kills, according to Paul Ferris, the campaign director at SumOfUs',
+        logo: "sumofus/press/ny-times",
+        logo_aspect: :long,
+        link: 'http://www.nytimes.com/2015/08/03/travel/cecil-lion-poaching-hunting-delta-airlines.html?_r=1'
+      },
+      {
+        quote: "Mothers whose children were shot in mass shootings delivered to the Walmart store a petition with more than 291,000 signatures demanding an end to the company's national sales of assault weapons and munitions.",
+        logo: "sumofus/press/usa-today",
+        logo_aspect: :tall,
+        link: 'http://www.usatoday.com/story/news/nation/2013/01/15/newtown-school-shooting-walmart/1836261/'
+      },
+    ].map do |press_hit|
+      press_hit[:logo] = ActionController::Base.helpers.asset_path(press_hit[:logo], type: :image)
+      press_hit
     end
   end
 end
