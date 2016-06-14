@@ -247,6 +247,18 @@ h1 {
   &__map {
     @include centered-to-full(900px);
     position: relative;
+    @media(max-width: 800px) {
+      margin-top: 20px;
+    }
+    @media(max-width: 700px) {
+      margin-top: 40px;
+    }
+    @media(max-width: 600px) {
+      margin-top: 80px;
+    }
+    @media(max-width: 400px) {
+      margin-top: 120px;
+    }
   }
   &__map-img {
     width: 100%;
@@ -261,31 +273,49 @@ h1 {
     height: 100%;
   }
 }
+@mixin point-size($scale) {
+  .poi-map__point-container {
+    width: 40px * $scale;
+    height: 40px * $scale;
+    // put center on position, not corner
+    margin-top: -20px * $scale;
+    margin-left: -20px * $scale;
+  }
+  .poi-map__point {
+    width: 40px * $scale;
+    height: 40px * $scale;
+    border-radius: 20px * $scale;
+  }
+  .poi-map__point-highlight {
+    width: 24px * $scale;
+    height: 24px * $scale;
+    top: 8px * $scale;
+    left: 8px * $scale;
+    border-radius: 12px * $scale;
+  }
+  .poi-map__blurb-container {
+    bottom: 20px * $scale;
+  }
+}
 .poi-map {
   $animation-duration: 0.2s;
+  @include point-size(1);
+  @media(max-width: 750px) {
+    @include point-size(0.75);
+  }
+  @media(max-width: 550px) {
+    @include point-size(0.5);
+  }
   &__point-container {
-    width: 40px;
-    height: 40px;
     position: absolute;
-    // put center on position, not corner
-    margin-top: -20px;
-    margin-left: -20px;
   }
   &__point {
     background: $orange;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
     z-index: 9;
   }
   &__point-highlight {
     background: $third-blue;
-    width: 24px;
-    height: 24px;
     position: absolute;
-    top: 8px;
-    left: 8px;
-    border-radius: 12px;
     z-index: 12;
     transition: width $animation-duration ease-in, height $animation-duration ease-in,
                 top $animation-duration ease-in, left $animation-duration ease-in;
@@ -296,13 +326,13 @@ h1 {
       left: 20px;
     }
   }
+
   &__blurb-container {
     width: 170px;
     padding: 20px;
     background: $teal;
     position: absolute;
     left: -85px;
-    bottom: 20px;
     color: white;
     text-align: left;
     transition: transform $animation-duration ease-in;
