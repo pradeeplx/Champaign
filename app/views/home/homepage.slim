@@ -54,15 +54,16 @@
     .press-carousel__quote-container
       span.press-carousel__quote
         = @press_hits.first[:quote]
-    .press-carousel__logo-container
+    .press-carousel__scroll-container
       .press-carousel__arrow.press-carousel__arrow--left
       .press-carousel__arrow.press-carousel__arrow--right
-      .press-carousel__cover.press-carousel__cover--left
-      .press-carousel__cover.press-carousel__cover--right
-      .press-carousel__logos
-        .press-carousel__logo-group
-          - @press_hits.each do |press_hit|
-            .press-carousel__logo data-quote=press_hit[:quote] style="background-image: url(#{press_hit[:logo]})" class="press-carousel__logo--#{press_hit[:logo_aspect]}"
+      .press-carousel__logo-container
+        .press-carousel__cover.press-carousel__cover--left
+        .press-carousel__cover.press-carousel__cover--right
+        .press-carousel__logos
+          .press-carousel__logo-group
+            - @press_hits.each do |press_hit|
+              .press-carousel__logo data-quote=press_hit[:quote] style="background-image: url(#{press_hit[:logo]})" class="press-carousel__logo--#{press_hit[:logo_aspect]}"
   .press-block__edge.press-block__edge--bottom
 
 .full-screen-block.signup-block

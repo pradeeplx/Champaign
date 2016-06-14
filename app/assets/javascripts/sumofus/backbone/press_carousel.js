@@ -4,6 +4,8 @@ const PressCarousel = Backbone.View.extend({
 
   events: {
     'click .press-carousel__logo': 'centerOnClicked',
+    'click .press-carousel__arrow--right': 'moveRight',
+    'click .press-carousel__arrow--left': 'moveLeft',
   },
 
   initialize(options = {}) {
@@ -26,6 +28,28 @@ const PressCarousel = Backbone.View.extend({
 
   centerOnClicked(e) {
     this.centerOn(this.$(e.target));
+  },
+
+  moveLeft() {
+    let $current = this.$('.press-carousel__logo--highlighted');
+    var $next;
+    if ($current.index() === 0) {
+      $next = $current.parent().prev().children().last();
+    } else {
+      $next = $current.prev();
+    }
+    this.centerOn($next);
+  },
+
+  moveRight() {
+    let $current = this.$('.press-carousel__logo--highlighted');
+    var $next;
+    if ($current.index() === ($current.parent().children().length - 1)) {
+      $next = $current.parent().next().children().first();
+    } else {
+      $next = $current.next();
+    }
+    this.centerOn($next);
   },
 
   centerOn($target) {

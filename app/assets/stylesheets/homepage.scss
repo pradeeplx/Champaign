@@ -385,11 +385,18 @@ h1 {
 }
 .press-carousel {
   position: relative;
-  &__logo-container {
-    @include centered-to-full(900px);
+  &__scroll-container {
     overflow: hidden;
     height: 100px;
     position: relative;
+    @include centered-to-full(900px);
+  }
+  &__logo-container {
+    overflow: hidden;
+    height: 100px;
+    position: relative;
+    width: calc(100% - 80px);
+    margin: 0 40px;
   }
   &__logos {
     height: 100px;
@@ -439,11 +446,22 @@ h1 {
     }
   }
   &__arrow {
+    background-image: url(asset-path(sumofus/arrow));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 25;
+    width: 20px;
+    height: 75px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
     &--left {
-
+      left: 10px;
     }
     &--right {
-
+      transform: rotate(180deg);
+      right: 10px;
     }
   }
   &__quote-container {
@@ -457,6 +475,9 @@ h1 {
     line-height: 1.3em;
     min-height: 205px;
     display: table;
+    @media(max-width: 700px) {
+      font-size: 24px;
+    }
   }
   &__quote {
     position: relative;

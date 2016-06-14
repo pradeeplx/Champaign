@@ -68,16 +68,16 @@ class HomeController < ApplicationController
   def press_hits
     [
       {
-        quote: '‘There’s overwhelming evidence that CEO pay isn’t linked to performance,’ Lisa Lindsley, a shareholder advocate with SumOfUs, told The Post.',
-        logo: "sumofus/press/ny-post",
-        logo_aspect: :tall,
-        link: 'http://nypost.com/2016/05/20/lloyd-blankfein-gets-23m-for-being-mediocre/'
+        quote: 'A group of airlines including Air France, KLM, Iberia, IAG Cargo, Singapore Airlines and Qantas signaled last week they would ban the transport of trophy-hunting kills, according to Paul Ferris, the campaign director at SumOfUs',
+        logo: "sumofus/press/ny-times",
+        logo_aspect: :long,
+        link: 'http://www.nytimes.com/2015/08/03/travel/cecil-lion-poaching-hunting-delta-airlines.html?_r=1'
       },
       {
-        quote: 'About 400 protesters blew conch shells on a Hawaii beach to demonstrate against a trade agreement being negotiated by ministers from 12 Pacific Rim nations.',
-        logo: "sumofus/press/seattle-times",
-        logo_aspect: :long,
-        link: 'http://www.seattletimes.com/nation-world/environmentalists-unions-protest-pacific-trade-pact-in-maui/'
+        quote: "Mothers whose children were shot in mass shootings delivered to the Walmart store a petition with more than 291,000 signatures demanding an end to the company's national sales of assault weapons and munitions.",
+        logo: "sumofus/press/usa-today",
+        logo_aspect: :tall,
+        link: 'http://www.usatoday.com/story/news/nation/2013/01/15/newtown-school-shooting-walmart/1836261/'
       },
       {
         quote: 'Pullman added she believes it’s important for her organization to continue putting pressure on WestJet, because other companies are watching. ‘It sends a message to the entire corporate sector,’ she said.',
@@ -104,16 +104,16 @@ class HomeController < ApplicationController
         link: 'http://www.mirror.co.uk/news/uk-news/real-work-unions-makes-services-7311706'
       },
       {
-        quote: 'A group of airlines including Air France, KLM, Iberia, IAG Cargo, Singapore Airlines and Qantas signaled last week they would ban the transport of trophy-hunting kills, according to Paul Ferris, the campaign director at SumOfUs',
-        logo: "sumofus/press/ny-times",
-        logo_aspect: :long,
-        link: 'http://www.nytimes.com/2015/08/03/travel/cecil-lion-poaching-hunting-delta-airlines.html?_r=1'
+        quote: '‘There’s overwhelming evidence that CEO pay isn’t linked to performance,’ Lisa Lindsley, a shareholder advocate with SumOfUs, told The Post.',
+        logo: "sumofus/press/ny-post",
+        logo_aspect: :tall,
+        link: 'http://nypost.com/2016/05/20/lloyd-blankfein-gets-23m-for-being-mediocre/'
       },
       {
-        quote: "Mothers whose children were shot in mass shootings delivered to the Walmart store a petition with more than 291,000 signatures demanding an end to the company's national sales of assault weapons and munitions.",
-        logo: "sumofus/press/usa-today",
-        logo_aspect: :tall,
-        link: 'http://www.usatoday.com/story/news/nation/2013/01/15/newtown-school-shooting-walmart/1836261/'
+        quote: 'About 400 protesters blew conch shells on a Hawaii beach to demonstrate against a trade agreement being negotiated by ministers from 12 Pacific Rim nations.',
+        logo: "sumofus/press/seattle-times",
+        logo_aspect: :long,
+        link: 'http://www.seattletimes.com/nation-world/environmentalists-unions-protest-pacific-trade-pact-in-maui/'
       },
     ].map do |press_hit|
       press_hit[:logo] = ActionController::Base.helpers.asset_path(press_hit[:logo], type: :image)
