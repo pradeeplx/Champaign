@@ -5,6 +5,7 @@
 @import "sumofus/components/form";
 @import "sumofus/components/logo";
 
+$triangle-img-hide-point: 730px;
 .full-screen-block {
   @include viewport-unit(height, 100vh);
   position: relative;
@@ -12,6 +13,9 @@
   &__content {
     @include size-of-container();
     z-index: 100;
+    @media(max-width: $triangle-img-hide-point) {
+      position: static;
+    }
   }
   &__bottom {
     position: absolute;
@@ -38,6 +42,9 @@
     max-width: 600px;
     position: relative;
     @include viewport-unit(margin-top, 22vh);
+    @media(max-width: 400px) {
+      @include viewport-unit(margin-top, 16vh);
+    }
     &::before {
       width: 20px;
       height: 20px;
@@ -58,12 +65,18 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 25px;
     font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
   }
   &__signers {
     height: 50px;
     @include viewport-unit(margin-top, 5vh);
     @include viewport-unit(margin-bottom, 5vh);
     width: 100%;
+  }
+  &__down-arrow {
+    margin-left: 10px;
   }
 }
 .side-padded {
@@ -73,6 +86,10 @@
 
 h1 {
   font-size: 42px;
+  @media(max-width: 500px) {
+    font-size: 36px;
+    line-height: 1.2em;
+  }
 }
 .homepage-button {
   font-size: 25px;
@@ -84,7 +101,7 @@ h1 {
 }
 
 .triangle-img {
-  @media(max-width: 730px) {
+  @media(max-width: $triangle-img-hide-point) {
     display: none;
   }
   @include size-of-container();
@@ -208,6 +225,9 @@ h1 {
     height: 100%;
     position: relative;
     overflow: hidden;
+    @media(max-width: $triangle-img-hide-point) {
+      width: 100%;
+    }
   }
   &__actions {
     position: absolute;
@@ -645,6 +665,7 @@ h1 {
 }
 .join-block {
   background-color: white;
+  @include viewport-unit(min-height, 100vh);
   &__title {
     color: $navy;
     max-width: 600px;

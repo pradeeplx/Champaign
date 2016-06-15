@@ -13,13 +13,14 @@
       a.intro-block__join-button.button.homepage-button href="#join"
         = t('homepage.cta.join_us')
     .side-padded.full-screen-block__bottom
-      .intro-block__scroll-cta
+      a.intro-block__scroll-cta href="#impact"
         = t('homepage.cta.see_impact')
+        i.fa.fa-angle-down.intro-block__down-arrow
   .triangle-img
     .triangle-img__cover
     .triangle-img__img
 
-.full-screen-block.full-screen-block--expandable.victories-block
+.full-screen-block.full-screen-block--expandable.victories-block#impact
   .victories-block__title.full-screen-block__title
     h1= t('homepage.titles.victories')
   .victories-block__subheader
@@ -64,7 +65,7 @@
               .press-carousel__logo data-quote=press_hit[:quote] style="background-image: url(#{press_hit[:logo]})" class="press-carousel__logo--#{press_hit[:logo_aspect]}"
   .press-block__edge.press-block__edge--bottom
 
-.full-screen-block.join-block#join
+.full-screen-block.join-block.full-screen-block--expandable#join
   .full-screen-block__content
     .side-padded.join-block__title
       h1= t('homepage.titles.join')
