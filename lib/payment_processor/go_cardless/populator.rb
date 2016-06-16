@@ -25,17 +25,18 @@ module PaymentProcessor
         request_params.merge(
           {
             name: "donation",
-            interval_unit: "monthly"
-          }.tap do |params|
-            if bacs?
-              params[:start_date] = Helper.next_available_date(Settings.gocardless.gbp_charge_day.to_i)
-            end
-          end
+            interval_unit: "monthly",
+            start_date: charge_date
+          }
         )
       end
 
       def mandate
         @mandate ||= client.mandates.get(complete_redirect_flow.links.mandate)
+      end
+
+      def bank_account
+        @bank_account ||= client.customer_bank_accounts.get(complete_redirect_flow.links.customer_bank_account)
       end
 
       def customer_id
