@@ -15,7 +15,6 @@ const ActionStream = Backbone.View.extend({
   },
 
   handleMessage(msg) {
-    console.log(JSON.parse(msg));
     this.actionQueue.push(JSON.parse(msg));
   },
 
