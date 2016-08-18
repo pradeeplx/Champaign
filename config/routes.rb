@@ -128,6 +128,7 @@ Rails.application.routes.draw do
       namespace :braintree, defaults: {format: 'json'} do
         get 'token'
         post 'pages/:page_id/transaction',  action: 'transaction', as: 'transaction'
+        post 'pages/:page_id/one_click',    action: 'one_click',   as: 'one_click'
         post 'webhook', action: 'webhook'
       end
     end
