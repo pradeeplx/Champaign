@@ -1,3 +1,5 @@
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 .gitignore
+temp/*
+log/*
