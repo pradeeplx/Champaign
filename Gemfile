@@ -2,6 +2,8 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
+gem 'rake', '>= 11.2.2'
+
 gem 'rails', '4.2.5'
 gem 'rails-observers'
 gem 'readthis'

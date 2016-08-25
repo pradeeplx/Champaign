@@ -558,6 +558,7 @@ DEPENDENCIES
   rails-assets-underscore!
   rails-i18n (~> 4.0.0)
   rails-observers
+  rake (>= 11.2.2)
   readthis
   redis (>= 3.2.0)
   remotipart (~> 1.2)
