@@ -1,5 +1,6 @@
+# coding: utf-8
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'rails', '4.2.5'
 gem 'rails-observers'
@@ -125,8 +126,11 @@ end
 
 group :test do
   gem 'webmock'
-  gem 'timecop'
   gem 'coveralls', require: false
+end
+
+group :test, :production do
+  gem 'timecop'
 end
 
 # Rails Assets - reference any Bower components that you need as gems.
