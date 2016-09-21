@@ -272,6 +272,12 @@ describe 'Braintree API' do
               subject
             end
 
+            it 'stores token to cookie', :focus do
+              subject
+
+              expect(response.cookies.signed['payment_methods']).to eq(['1234'])
+            end
+
             it 'creates an Action associated with the Page and Member' do
               expect { subject }.to change { Action.count }.by 1
               expect(Action.last.page).to eq page
