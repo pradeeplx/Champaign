@@ -1,3 +1,6 @@
+// import braintree from 'braintree-web';
+var braintree = require('braintree-web');
+
 const BraintreeHostedFields = Backbone.View.extend({
 
   el: '.hosted-fields-view',
@@ -6,7 +9,7 @@ const BraintreeHostedFields = Backbone.View.extend({
   SELECTOR_TO_HIDE_ON_PAYPAL_SUCCESS: '.hosted-fields__credit-card-fields, .hosted-fields__direct-debit-container',
 
   initialize() {
-    this.getClientToken(this.setupFields.bind(this));
+    this.getClientToken(this.setupBraintree.bind(this));
     this.tokenRetries = 0;
   },
 
@@ -27,26 +30,6 @@ const BraintreeHostedFields = Backbone.View.extend({
         onCancelled: () => { this.$(this.SELECTOR_TO_HIDE_ON_PAYPAL_SUCCESS).slideDown(); },
         onSuccess: () => { this.$(this.SELECTOR_TO_HIDE_ON_PAYPAL_SUCCESS).slideUp(); },
         locale: I18n.currentLocale(),
-      },
-      hostedFields: {
-        number: {
-          selector: ".hosted-fields__number",
-          placeholder: I18n.t('fundraiser.fields.number'),
-        },
-        cvv: {
-          selector: ".hosted-fields__cvv",
-          placeholder: I18n.t('fundraiser.fields.cvv'),
-        },
-        expirationDate: {
-          selector: ".hosted-fields__expiration",
-          placeholder: I18n.t('fundraiser.fields.expiration_format'),
-        },
-        styles: {
-          input: {
-            "font-size": "16px",
-          },
-        },
-        onFieldEvent: this.fieldUpdate.bind(this),
       },
     };
   },
@@ -77,8 +60,51 @@ const BraintreeHostedFields = Backbone.View.extend({
     }
   },
 
-  setupFields(clientToken) {
-    braintree.setup(clientToken, "custom", this.braintreeSettings());
+  setupPaypal(client) {
+    console.log('paypal', client);
+  },
+
+  setupHostedFields(client) {
+        // onFieldEvent: this.fieldUpdate.bind(this),
+    braintree.hostedFields.create({
+      client: client,
+      fields: {
+        number: {
+          selector: ".hosted-fields__number",
+          placeholder: I18n.t('fundraiser.fields.number'),
+        },
+        cvv: {
+          selector: ".hosted-fields__cvv",
+          placeholder: I18n.t('fundraiser.fields.cvv'),
+        },
+        expirationDate: {
+          selector: ".hosted-fields__expiration",
+          placeholder: I18n.t('fundraiser.fields.expiration_format'),
+        },
+      },
+      styles: {
+        input: {
+          "font-size": "16px",
+        },
+      },
+    }, (error, hostedFields) => {
+      this.hideSpinner();
+      hostedFields.on('validityChange', (e) => {
+        console.log('validity change', e);
+      });
+      hostedFields.on('cardTypeChange', this.showCardType.bind(this));
+      console.log(error, hostedFields);
+    });
+  },
+
+  setupBraintree(clientToken) {
+    braintree.client.create({
+      authorization: clientToken,
+    }, (clientErr, clientInstance) => {
+      this.setupHostedFields(clientInstance);
+      this.setupPaypal(clientInstance);
+    });
+    // braintree.setup(clientToken, "custom", this.braintreeSettings());
   },
 
   hideSpinner() {
@@ -103,8 +129,8 @@ const BraintreeHostedFields = Backbone.View.extend({
     $holder.append(`<div class='error-msg'>${this.translateFieldName(fieldName)} ${msg}</div>`);
   },
 
-  showCardType(card) {
-    if (card == null || card.type == null ) {
+  showCardType(e) {
+    if (e.cards.length !== 1) {
       this.$('.hosted-fields__card-type').addClass('hidden-irrelevant');
     } else {
       let icons = {
@@ -115,10 +141,13 @@ const BraintreeHostedFields = Backbone.View.extend({
         'master-card': 'fa-cc-mastercard',
         'visa': 'fa-cc-visa',
       }
-      let $cardType = this.$('.hosted-fields__card-type');
-      $cardType.removeClass($cardType.data('card-class'));
-      if (icons[card.type] !== undefined) {
-        $cardType.addClass(icons[card.type]).data('card-class', icons[card.type]).removeClass('hidden-irrelevant');
+      let $cardTypeBadge = this.$('.hosted-fields__card-type');
+      let cardType = e.cards[0].type;
+      $cardTypeBadge.removeClass($cardTypeBadge.data('card-class'));
+      if (icons[cardType] !== undefined) {
+        $cardTypeBadge.addClass(icons[cardType])
+                 .data('card-class', icons[cardType])
+                 .removeClass('hidden-irrelevant');
       }
     }
   },
