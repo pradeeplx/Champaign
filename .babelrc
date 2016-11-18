@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "env",
+    "latest",
+    "react"
+  ],
+  "plugins": [
+    "transform-react-jsx",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-react-constant-elements",
+    "transform-react-jsx-self",
+    "transform-react-jsx-source",
+    "transform-regenerator",
+    "transform-runtime"
+  ]
+}
