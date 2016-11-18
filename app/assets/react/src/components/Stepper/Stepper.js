@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Step from './Step';
 import type { Props as StepProps } from './Step';
-import './Stepper.css';
+// import './Stepper.css';
 
 type Props = {
   steps: string[];

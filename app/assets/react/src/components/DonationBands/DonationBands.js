@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { FormattedNumber } from 'react-intl';
 import Button from '../Button/Button';
-import './DonationBands.css';
+// import './DonationBands.css';
 
 const FORMATTED_NUMBER_DEFAULTS = {
   style: 'currency',

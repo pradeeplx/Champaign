@@ -20,4 +20,5 @@ end
 Rails.application.config.assets.precompile += %w(member-facing.css member-facing.js)
 
 # to get browserify to turn everything into es6
-Rails.application.config.browserify_rails.commandline_options = '--transform babelify --extension=".js"'
+options = '--transform [ babelify --presets [ es2015 react ] --plugins [ transform-class-properties ] ] --extension=".js" --extension=".jsx"'
+Rails.application.config.browserify_rails.commandline_options = options

@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import './SweetInput.css';
+// import './SweetInput.css';
 
 type OwnProps = {
   name: string;

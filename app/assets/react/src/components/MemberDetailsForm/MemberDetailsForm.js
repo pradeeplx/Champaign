@@ -3,8 +3,8 @@ import Select from 'react-select';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import SweetInput from '../SweetInput/SweetInput';
 import countries from 'country-data/data/countries.json';
-import './MemberDetailsForm.css';
-import 'react-select/dist/react-select.css';
+// import './MemberDetailsForm.css';
+// import 'react-select/dist/react-select.css';
 
 type OwnProps = {
   nextStepTitle: string;
