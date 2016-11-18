@@ -1,7 +1,6 @@
 /* @flow */
 import React, { Component } from 'react';
 import Step from './Step';
-import './Stepper.css';
 
 type Props = {
   steps: string[];

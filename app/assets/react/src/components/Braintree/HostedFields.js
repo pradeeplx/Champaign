@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import braintree from 'braintree-web';
-import './HostedFields.css';
 
 export default class HostedFields extends Component {
   state: {

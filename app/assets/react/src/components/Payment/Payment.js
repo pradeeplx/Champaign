@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import HostedFields from '../Braintree/HostedFields';
 import { FormattedMessage } from 'react-intl';
-import './Payment.css';
 
 export default class Payment extends Component {
   static title = <FormattedMessage id="payment" defaultMessage="payment" />;

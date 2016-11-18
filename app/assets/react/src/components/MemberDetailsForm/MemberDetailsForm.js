@@ -11,8 +11,6 @@ import SweetInput from '../SweetInput/SweetInput';
 import { updateUser } from '../../state/fundraiser/actions';
 // import isEmail from 'validator/lib/isEmail';
 
-import './MemberDetailsForm.css';
-import 'react-select/dist/react-select.css';
 
 type ConnectedState = { user: FundraiserFormMember; formId: number; };
 type ConnectedDispatch = { updateUser: (u: FundraiserFormMember) => void; };

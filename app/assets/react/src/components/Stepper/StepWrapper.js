@@ -2,7 +2,6 @@
 import React, { Component, Children, cloneElement } from 'react';
 import Stepper from './Stepper';
 import compact from 'lodash/compact';
-import './Stepper.css';
 
 type OwnProps = {
   changeStep: (step: number) => void;

@@ -7,7 +7,6 @@ import deLocaleData from 'react-intl/locale-data/de';
 import frLocaleData from 'react-intl/locale-data/fr';
 import esLocaleData from 'react-intl/locale-data/es';
 import FundraiserView from './containers/FundraiserView/FundraiserView';
-import './App.css';
 
 addLocaleData([
   ...enLocaleData,
