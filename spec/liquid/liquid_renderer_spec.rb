@@ -176,7 +176,7 @@ describe LiquidRenderer do
       let(:fundraiser) { create :plugins_fundraiser, page: page, form: form }
 
       before :each do
-        create :plugins_fundraiser, page: page, form: form, recurring_default: 'recurring'
+        fundraiser = create :plugins_fundraiser, page: page, form: form, recurring_default: 'recurring'
         allow(DirectDebitDecider).to receive(:decide).and_return(true)
       end
 

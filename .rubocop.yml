@@ -31,9 +31,3 @@ Lint/BlockAlignment:
 
 Lint/InheritException:
   Enabled: false
-
-Style/GuardClause:
-  Enabled: false
-
-Style/IfUnlessModifier:
-  MaxLineLength: 40

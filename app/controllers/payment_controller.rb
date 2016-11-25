@@ -2,7 +2,6 @@
 
 class PaymentController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :localize_from_page_id, :store_locale_in_session, only: :transaction
 
   def transaction
     if builder.success?

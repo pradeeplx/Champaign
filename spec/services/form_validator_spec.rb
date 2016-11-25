@@ -124,11 +124,6 @@ describe FormValidator do
           expect(subject).to_not be_valid
         end
 
-        it 'with dot at start' do
-          params[:email] = '.this@other.com'
-          expect(subject).to_not be_valid
-        end
-
         it 'with a dot just after the @' do
           params[:email] = 'this@.other.com'
           expect(subject).to_not be_valid

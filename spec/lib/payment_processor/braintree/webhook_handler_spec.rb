@@ -49,12 +49,11 @@ describe PaymentProcessor::Braintree::WebhookHandler do
         )
       end
 
-      it 'posts a successful subscription payment event to the queue' do
+      it 'posts events' do
         expected_payload = {
           type: 'subscription-payment',
           params: {
-            recurring_id: 'foo',
-            success: 1
+            recurring_id: 'foo'
           }
         }
 
@@ -136,34 +135,6 @@ describe PaymentProcessor::Braintree::WebhookHandler do
                                                       })
         subject
       end
-    end
-  end
-
-  describe 'failed subscription charge' do
-    let(:notification) do
-      notification_faker(
-        Braintree::WebhookNotification::Kind::SubscriptionChargedUnsuccessfully,
-        subscription.subscription_id
-      )
-    end
-
-    it 'creates a failed transaction locally' do
-      expect { subject }
-        .to change { subscription.transactions.count }
-        .from(0).to(1)
-      expect(subscription.transactions.first.status).to eq('failure')
-    end
-
-    it 'pushes a failed subscription charge event to the queue' do
-      expected_payload = {
-        type: 'subscription-payment',
-        params: {
-          recurring_id: 'foo',
-          success: 0
-        }
-      }
-      expect(ChampaignQueue).to receive(:push).with(expected_payload, delay: 120)
-      subject
     end
   end
 end
