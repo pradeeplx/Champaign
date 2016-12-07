@@ -48,7 +48,7 @@ class Api::Payment::BraintreeController < PaymentController
       amount: params[:amount].to_f,
       user: params[:user].merge(mobile_value),
       currency: params[:currency],
-      page_id: params[:page_id],
+      page: page,
       store_in_vault: store_in_vault?
     }
   end

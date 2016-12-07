@@ -62,10 +62,7 @@ module PaymentProcessor
           device_data: @device_data,
 
           options: {
-            submit_for_settlement: true,
-            # we always want to store in vault unless we're using an existing
-            # payment_method_token. we haven't built anything to do that yet,
-            # so for now always store the payment method.
+            submit_for_settlement: submit_for_settlement?,
             store_in_vault_on_success: store_in_vault
           },
           customer: customer_options,
