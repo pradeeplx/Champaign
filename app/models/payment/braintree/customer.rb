@@ -34,4 +34,12 @@ class Payment::Braintree::Customer < ActiveRecord::Base
   def default_payment_method
     payment_methods.order('created_at desc').first
   end
+
+  def self.create_or_return_for(member)
+    braintree_opts = member.slice(:first_name, :last_name, :email)
+    resp = Braintree::Customer.create(braintree_opts)
+
+    local_opts = braintree_opts.merge(customer_id: resp.customer.id)
+    member.create_customer(local_opts)
+  end
 end

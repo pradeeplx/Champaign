@@ -30,4 +30,16 @@ class Payment::Braintree::PaymentMethod < ActiveRecord::Base
 
   scope :stored, -> { where(store_in_vault: true) }
   scope :active, -> { where(cancelled_at: nil) }
+
+  def self.create_for(customer, nonce)
+    braintree_opts = {
+      customer_id: customer.customer_id,
+      payment_method_nonce: nonce
+    }
+
+    resp = Braintree::PaymentMethod.create(braintree_opts)
+
+    attributes = Wrappers::PaymentMethod.new(resp).attriutes
+    customer.payment_methods.create(attributes)
+  end
 end

@@ -35,4 +35,7 @@ describe Payment::Braintree::Customer do
       expect(customer.member).to eq(member)
     end
   end
+
+  describe '.create_on_braintree' do
+  end
 end

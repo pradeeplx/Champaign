@@ -127,6 +127,12 @@ class Page < ActiveRecord::Base
                                end
   end
 
+  def pledger?
+    @fundraiser ||= Plugins::Fundraiser.find_by(page_id: id)
+
+    @fundraiser.try(:pledge) || false
+  end
+
   private
 
   def switch_plugins
