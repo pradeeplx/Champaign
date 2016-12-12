@@ -133,6 +133,10 @@ class Page < ActiveRecord::Base
     @fundraiser.try(:pledge) || false
   end
 
+  def set_as_pledger
+    Plugins::Fundraiser.find_by(page_id: id).set_as_pledger
+  end
+
   private
 
   def switch_plugins

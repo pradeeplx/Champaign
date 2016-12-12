@@ -40,11 +40,12 @@ module PaymentProcessor
 
       def transact
         @result = ::Braintree::Transaction.sale(options)
+
         if @result.success?
-          @action = ManageBraintreeDonation.create(params: @user.merge(page: @page), braintree_result: @result, is_subscription: false, store_in_vault: @store_in_vault)
-          Payment::Braintree.write_transaction(@result, @page.id, @action.member_id, existing_customer, store_in_vault: @store_in_vault)
+          @action = ManageBraintreeDonation.create(params: @user.merge(page_id: @page.id), braintree_result: @result, is_subscription: false, store_in_vault: @store_in_vault)
+          Payment::Braintree.write_transaction(@result, @page, @action.member_id, existing_customer, store_in_vault: @store_in_vault)
         else
-          Payment::Braintree.write_transaction(@result, @page.id, nil, existing_customer, store_in_vault: @store_in_vault)
+          Payment::Braintree.write_transaction(@result, @page, nil, existing_customer, store_in_vault: @store_in_vault)
         end
       end
 
@@ -52,8 +53,12 @@ module PaymentProcessor
         @result.try(:transaction).try(:id)
       end
 
-      def store_in_vault
-        @store_in_vault
+      def store_in_vault?
+        @store_in_vault || @page.pledger?
+      end
+
+      def submit_for_settlement?
+        !@page.pledger?
       end
 
       private
@@ -66,8 +71,8 @@ module PaymentProcessor
           device_data: @device_data,
 
           options: {
-            submit_for_settlement: true,
-            store_in_vault_on_success: store_in_vault
+            submit_for_settlement: submit_for_settlement?,
+            store_in_vault_on_success: store_in_vault?
           },
           customer: customer_options,
           billing: billing_options

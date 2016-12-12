@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+## WIP - not for MVP
 class PledgeHandler
   attr_reader :member
 
@@ -7,6 +8,7 @@ class PledgeHandler
     @opts = opts
     @member = member
   end
+
 
   def pledge
     if opts.payment_method_token
@@ -74,9 +76,6 @@ class Api::Payment::BraintreeController < PaymentController
 
   def token
     render json: { token: ::Braintree::ClientToken.generate }
-  end
-
-  def pledge
   end
 
   def webhook
